@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet } from 'react-native';
 import Form from '../components/Form';
 import Diagram from '../components/Diagram';
@@ -8,12 +8,14 @@ import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+  const [numberOfSides, setNumberOfSides] = useState(3);
+
   return (
     <View style={styles.container}>
-      <Results />
-      <Diagram />
+      <Results numberOfSides={numberOfSides} />
+      <Diagram numberOfSides={numberOfSides} />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Form />
+      <Form numberOfSides={numberOfSides} setNumberOfSides={setNumberOfSides} />
     </View>
   );
 }
