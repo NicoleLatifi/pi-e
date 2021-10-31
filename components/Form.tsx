@@ -11,7 +11,7 @@ interface FormProps {
 const Form: React.FC<FormProps> = ({ numberOfSides, setNumberOfSides }) => {
 
   return (
-    <View>
+    <View style={styles.sliderContainer}>
       <Slider 
       maximumValue={12}
       maximumTrackTintColor="white"
@@ -29,6 +29,12 @@ const Form: React.FC<FormProps> = ({ numberOfSides, setNumberOfSides }) => {
 const styles = StyleSheet.create({
   slider: {
     width: 300
+  },
+  sliderContainer: {
+    // TODO: style Slider to be at bottom of screen without effecting position of the rest of the content
+    // flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 30,
   }
 })
 

@@ -8,11 +8,9 @@ interface DiagramProps {
 
 const Diagram:React.FC<DiagramProps> = ({ numberOfSides }) => {
   return (
-    <View>
       <View style={styles.circle}>
         <Text style={styles.inside}>{numberOfSides}</Text>
       </View>
-    </View>
   )
 }
 
