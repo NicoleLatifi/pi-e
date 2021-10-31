@@ -1,22 +1,31 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View } from './Themed';
+import { Text, View } from './Themed';
 
-const Diagram = () => {
+interface DiagramProps {
+  numberOfSides: number;
+}
+
+const Diagram:React.FC<DiagramProps> = ({ numberOfSides }) => {
   return (
-    <View>
-      <View style={styles.circle} />
-    </View>
+      <View style={styles.circle}>
+        <Text style={styles.inside}>{numberOfSides}</Text>
+      </View>
   )
 }
 
 const styles = StyleSheet.create({
   circle: {
+    alignItems: "center",
     borderColor: "yellow",
-    borderRadius: 50,
+    borderRadius: 150,
     borderWidth: 1,
-    height: 100,
-    width: 100,
+    height: 300,
+    justifyContent: "center",
+    width: 300,
+  },
+  inside: {
+    fontSize: 128,
   }
 })
 

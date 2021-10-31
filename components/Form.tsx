@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from '@react-native-community/slider';
-import { StyleSheet, TextInput } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text, View } from './Themed';
 
-const Form = () => {
-  const [sliderValue, setSliderValue] = useState(3)
+interface FormProps {
+  numberOfSides: number;
+  setNumberOfSides: (newNumber: number) => void;
+}
 
-  const handleChange = (value: number) => {
-    setSliderValue(value)
-  }
+const Form: React.FC<FormProps> = ({ numberOfSides, setNumberOfSides }) => {
 
   return (
-    <View>
+    <View style={styles.sliderContainer}>
       <Slider 
       maximumValue={12}
       maximumTrackTintColor="white"
       minimumValue={3}
-      onValueChange={handleChange}
+      onValueChange={setNumberOfSides}
       step={1}
       style={styles.slider}
+      value={numberOfSides}
       />
-      <Text>Number of Sides: {sliderValue}</Text>
+      <Text>Number of Sides: {numberOfSides}</Text>
     </View>
   )
 }
@@ -28,6 +29,12 @@ const Form = () => {
 const styles = StyleSheet.create({
   slider: {
     width: 300
+  },
+  sliderContainer: {
+    // TODO: style Slider to be at bottom of screen without effecting position of the rest of the content
+    // flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 30,
   }
 })
 
