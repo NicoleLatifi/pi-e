@@ -1,7 +1,7 @@
-import React from 'react';
-import Slider from '@react-native-community/slider';
-import { StyleSheet } from 'react-native';
-import { Text, View } from './Themed';
+import React from "react";
+import Slider from "@react-native-community/slider";
+import { StyleSheet } from "react-native";
+import { Text, View } from "./Themed";
 
 interface FormProps {
   numberOfSides: number;
@@ -9,33 +9,31 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ numberOfSides, setNumberOfSides }) => {
-
   return (
     <View style={styles.sliderContainer}>
-      <Slider 
-      maximumValue={12}
-      maximumTrackTintColor="white"
-      minimumValue={3}
-      onValueChange={setNumberOfSides}
-      step={1}
-      style={styles.slider}
-      value={numberOfSides}
+      <Slider
+        maximumValue={100}
+        maximumTrackTintColor="white"
+        minimumValue={3}
+        onValueChange={setNumberOfSides}
+        step={1}
+        style={styles.slider}
+        value={numberOfSides}
       />
       <Text>Number of Sides: {numberOfSides}</Text>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   slider: {
-    width: 300
+    width: 300,
   },
   sliderContainer: {
     // TODO: style Slider to be at bottom of screen without effecting position of the rest of the content
-    // flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     marginBottom: 30,
-  }
-})
+  },
+});
 
 export default Form;
