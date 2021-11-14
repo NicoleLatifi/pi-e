@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View } from './Themed';
+import React from "react";
+import { Text, View } from "./Themed";
 
 interface ResultsProps {
   numberOfSides: number;
@@ -12,7 +12,7 @@ const Results: React.FC<ResultsProps> = ({ numberOfSides }) => {
       <Text>pi-e: </Text>
       <Text>accuracy: </Text>
     </>
-  )
-}
+  );
+};
 
 export default Results;
